@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <link href="css/video-js.css" rel="stylesheet" />
+    <link href="css/videojs-overlay-hyperlink.css" rel="stylesheet" />
+  </head>
+  <body>
+    <video
+      id="videojs-overlay-player"
+      class="video-js vjs-default-skin"
+      controls
+    >
+      <source
+        src="https://119ee0d1d7d5.ap-south-1.playback.live-video.net/api/video/v1/ap-south-1.813607810976.channel.WpvcB3s0gUDv.m3u8"
+        type="application/x-mpegURL"
+      />
+    </video>
+
+    <script src="js/video.js"></script>
+    <script src="js/videojs-overlay-hyperlink.js"></script>
+
+    <script>
+      var vid = document.getElementById("videojs-overlay-player");
+
+      (function (window, videojs) {
+        var player = (window.player = videojs("videojs-overlay-player", {
+          // techOrder: ["AmazonIVS"],
+        }));
+
+        player.overlay({
+          content:
+            '<a href="https://www.cloudthat.com" target="_blank">Click here to Donate</a>',
+          debug: true,
+          overlays: [
+            {
+              start: 0,
+              // end: 5,
+              align: "bottom-right",
+            },
+            // {
+            //   start: 10,
+            //   end: 15,
+            //   align: "bottom-right",
+            // },
+            // {
+            //   start: 20,
+            //   end: 25,
+            //   align: "bottom-right",
+            // },
+          ],
+        });
+      })(window, window.videojs);
+    </script>
+  </body>
+</html>
